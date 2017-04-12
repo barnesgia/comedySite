@@ -709,3 +709,61 @@ section {
 		padding: 10px 0px 9px;
 	}
 }
+
+form {
+	width:459px;
+	margin:0 auto;
+}
+
+label {
+	display:block;
+	margin-top:20px;
+	letter-spacing:2px;
+	color: #fff;
+	font-family: Open Sans, Arial,sans-serif;
+}
+
+input, textarea {
+	width:439px;
+	height:27px;
+	background:#efefef;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border:1px solid #dedede;
+	padding:10px;
+	margin-top:3px;
+	font-size:0.9em;
+	color:#3a3a3a;
+}
+
+input:focus, textarea:focus {
+	border:1px solid #97d6eb;
+}
+
+textarea {
+	height:213px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#submit {
+	width:127px;
+	height:38px;
+	border:none;
+	margin-top:20px;
+	cursor:pointer;
+	color: #000;
+	font-weight: bold;
+}
+
+#submit:hover {
+	opacity:0.9;
+}
+
+.contact-header{
+	position:relative;
+ 	width:100%;
+ 	text-align:center;
+ 	max-width: 100%;
+ 	font-weight:700;
+}
