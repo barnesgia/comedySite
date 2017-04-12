@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 
 <head>
-
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Comedian Georgia Barnes</title>
+	<title>Comedian Georgia Barnes - Contact</title>
 
 	<link href="css/comedySitePages.css" rel="stylesheet">
 
@@ -24,6 +24,7 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
 </head>
+
 <body id="page-top">
 
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -56,28 +57,68 @@
 						<a class="page-scroll" href="photos.html">Photos</a>
 					</li>
 					<li>
-						<a class="page-scroll" href="contact.php">Contact</a>
+						<a class="page-scroll" href="contact.html">Contact</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<header>
-		<div class="header-content">
-			<div class="header-content-inner">
-				<h1 id="homeHeading">
-					Photos
-				</h1>
-				<hr />
-	            <img src="images/jumbotron.JPG" class="gallery">	
-	        </div>      
-		</div>
-	</header>
 
+    <section class="body">
 
+    	<div class="container">
+    		<h1 id="homeHeading" class="contact-header">Contact me</h1>
+    		<hr/>
+    	
+    		<form method="post" action="contact.php">
+        
+		    	<label>Name</label>
+		    	<input name="name" placeholder="Type Here">
+		            
+		    	<label>Email</label>
+		    	<input name="email" type="email" placeholder="Type Here">
+		            
+		    	<label>Message</label>
+		    	<textarea name="message" placeholder="Type Here"></textarea>
+		        
+		        <label>*What is 2+2? (Anti-spam)</label>
+				<input name="human" placeholder="Type Here">
 
-	<!-- Bootstrap js -->
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		    	<input id="submit" name="submit" type="submit" value="Submit">
+		        
+			</form>
+		<?php
+		    $name = $_POST['name'];
+		    $email = $_POST['email'];
+		    $message = $_POST['message'];
+		    $from = 'From: TangledDemo'; 
+		    $to = 'gbarnescomedy@gmail.com'; 
+		    $subject = 'Hello';
+		    $human = $_POST['human'];
+					
+		    $body = "From: $name\n E-Mail: $email\n Message:\n $message";
+						
+		    if ($_POST['submit']) {
+		    	if ($name != '' && $email != '') {
+		        	if ($human == '4') {				 
+		            	if (mail ($to, $subject, $body, $from)) { 
+			        		echo '<p>Your message has been sent!</p>';
+			    		} else { 
+			        		echo '<p>Something went wrong, go back and try again!</p>'; 
+			    		} 
+					} else if ($_POST['submit'] && $human != '4') {
+			    		echo '<p>You answered the anti-spam question incorrectly!</p>';
+					}
+		    	} else {
+		        	echo '<p>You need to fill in all required fields!!</p>';
+		    	}
+			}
+		?>
+
+    	</div>
+    </section>
 
 </body>
+
+</html>
